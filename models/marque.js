@@ -1,10 +1,20 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Marque = sequelize.define('Marque', {
-    brand: DataTypes.STRING
-  }, {});
-  Marque.associate = function(models) {
-    // relation
-  };
-  return Marque;
-};
+const sequelize = require('./../database/sequelize');
+const Sequelize = require('sequelize');
+
+module.exports = sequelize.define('Marques', {
+  id: {
+    field: 'brandId',
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
+  brand: {
+    field: 'brand',
+    type: Sequelize.STRING
+  },
+  createdAt: {
+    field: 'createdAt',
+    type: Sequelize.STRING
+  }
+}, {
+  timestamps: false
+});
