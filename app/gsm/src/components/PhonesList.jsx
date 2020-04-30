@@ -2,6 +2,8 @@ import React from 'react';
 import PhonesAPI from '../services/PhonesAPI';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import PhoneCard from './PhoneCard';
+import PhoneDetails from './PhoneDetails';
 
 const PhonesList = ({ id }) => {
 
@@ -28,12 +30,34 @@ const PhonesList = ({ id }) => {
         <>
             <div className="mx-5">
                 <div className="row">
-                    {phones.map(phone => 
-                        <div key={phone.id}>
-                            <h1>{phone.brand}</h1>
-                            <p>{phone.price}</p>
-                        </div>
-                        )}
+                    {!phones.id ? 
+                    phones.map(phone => <PhoneCard
+                        key = {phone.id}
+                        brand = {phone.brand}
+                        model = {phone.model}
+                        price = {phone.price}
+                        img = {phone.imgLink}
+                        release = {phone.release}
+                        ram = {phone.ram}
+                        storage = {phone.storage}
+                        inch = {phone.inch}
+                        screenType = {phone.screenType}
+                        id = {phone.id}
+                    />) : 
+                    <PhoneDetails
+                        key = {phones.id}
+                        brand = {phones.brand}
+                        model = {phones.model}
+                        price = {phones.price}
+                        img = {phones.imgLink}
+                        release = {phones.release}
+                        ram = {phones.ram}
+                        storage = {phones.storage}
+                        inch = {phones.inch}
+                        screenType = {phones.screenType}
+                        id = {phones.id}
+                        processor = {phones.processor}
+                    />}
                 </div>
             </div>
         </>
