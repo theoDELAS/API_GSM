@@ -5,13 +5,22 @@ import { useEffect } from 'react';
 import PhoneCard from './PhoneCard';
 import PhoneDetails from './PhoneDetails';
 
-const PhonesList = ({ id }) => {
+const PhonesList = ({ id, order }) => {
 
-    const [phones, setPhones] = useState([]);
-
+    const [phones, setPhones] = useState([]);    
+    
+    
     const fetchPhones = async () => {
-        try {  
-            if (id) {
+        try {
+            if (order) {                
+                if (order === 'desc') {
+                    const data = await PhonesAPI.fetchPhonesDesc();
+                    setPhones(data);
+                } else {
+                    const data = await PhonesAPI.fetchPhonesAsc();
+                    setPhones(data);
+                }
+            } else if (id) {
                 const data = await PhonesAPI.fetchPhone(id);
                 setPhones(data);
             } else {
@@ -25,11 +34,11 @@ const PhonesList = ({ id }) => {
 
     useEffect(() => {
         fetchPhones();
-    },[id])    
+    },[id, order])    
     return ( 
         <>
             <div className="mx-5">
-                <div className="row">
+                <div className="row">             
                     {!phones.id ? 
                     phones.map(phone => <PhoneCard
                         key = {phone.id}

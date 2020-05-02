@@ -7,11 +7,11 @@ const app = express();
 
 app.use(bodyParser.json());
 
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.post('/api/addPhone', function(req, res) {
   Telephones.create({
@@ -61,11 +61,47 @@ app.get('/api/telephones', function(req, res) {
           [Sequelize.Op.like]: `%${q}%`
         }
       }
-    };
-  }
+    }
+  };
 
   Telephones.findAll(filter).then((telephones) => {
     res.json(telephones);
+  });
+});
+
+app.get('/api/telephones/desc', function(req, res) {
+  Telephones.findAll({
+      order: [
+        ['price', 'DESC']
+      ]
+  }).then((telephones) => {
+    res.json(telephones);
+  });
+});
+
+app.get('/api/telephones/asc', function(req, res) {
+  Telephones.findAll({
+      order: [
+        ['price', 'ASC']
+      ]
+  }).then((telephones) => {
+    res.json(telephones);
+  });
+});
+
+app.get('/api/telephones/:brand', function(req, res) {
+  let { brand } = req.params;
+
+  Telephones.findAll({
+    where: {
+      brand: brand
+    }
+  }).then((telephones) => {
+    if (telephones) {
+      res.json(telephones);
+    } else {
+      res.status(404).send();
+    }
   });
 });
 
@@ -75,22 +111,6 @@ app.get('/api/telephone/:id', function(req, res) {
   Telephones.findByPk(id).then((telephone) => {
     if (telephone) {
       res.json(telephone);
-    } else {
-      res.status(404).send();
-    }
-  });
-});
-
-app.get('/api/telephones/:brand', function(req, res) {
-  let { brand } = req.params;
-
-  Telephones.findAll({
-    where: {
-      model: brand
-    }
-  }).then((telephones) => {
-    if (telephones) {
-      res.json(telephones);
     } else {
       res.status(404).send();
     }
