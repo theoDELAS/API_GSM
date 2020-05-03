@@ -11,7 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/telephones/:order" component={HomePage} />
         <Route exact path="/telephone/:id" component={PhonePage} />
-        <Route exact path="/telephones" component={HomePage} />
+        <Route exact path="/" component={HomePage} />
       </Switch>
     </Router> 
   );
