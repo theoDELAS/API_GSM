@@ -1,19 +1,8 @@
 import React from 'react';
 
-
-
-
 const PhoneDetails = ({brand, price, img, release, model, ram, inch, screenType, storage, processor, os}) => {
-
-
-
-
     function calcul(price,  ram,  release,  storage, screenType, os, inch) {
-
         let this_year = new Date().getFullYear()
-
-      
-
         let pts_tel = 10
         let pts_size = 0
         let pts_type = 0
@@ -21,8 +10,6 @@ const PhoneDetails = ({brand, price, img, release, model, ram, inch, screenType,
         let pts_ram = 10
         let pts_year = 10
         let pts_storage = 10
-
-        console.log(price.price);
 
         while (price.price > 650){
             price.price -= 100
@@ -58,11 +45,7 @@ const PhoneDetails = ({brand, price, img, release, model, ram, inch, screenType,
         return note_finale 
     }
 
-
-
     return ( 
-
-
         <div className="col-12 text-center mb-5">
             <img className="mb-4" src={img} alt="Card image cap" />
             <h1 className="h2 my-3">{brand} {model}</h1>
@@ -74,13 +57,8 @@ const PhoneDetails = ({brand, price, img, release, model, ram, inch, screenType,
                 <li className="list-group-item">{processor}</li>
                 <li className="list-group-item">{price} &euro;</li>
                 <li className="list-group-item">Note : {calcul({price}, {ram}, {release}, {storage}, {screenType}, {os}, {inch})}/10</li>
-            </ul>
-          
-
-
-                                                                                                                                                                                                                                                                                                                            
+            </ul>                                                                                                                                                                                                                                                                                                           
         </div>
     );
 }
- 
 export default PhoneDetails;
