@@ -20,13 +20,13 @@ const PhoneDetails = ({brand, price, img, release, model, ram, inch, screenType,
             pts_size = 9}
         else if (inch.inch < 5.4 || inch.inch > 6.8){
             pts_size = 8}
-        if (screenType.screenType == "AMOLED"){
+        if (screenType.screenType === "AMOLED"){
             pts_type = 10}
-        else if (screenType.screenType == "OLED"){
+        else if (screenType.screenType === "OLED"){
             pts_type = 9}
-        else if (screenType.screenType == "LCD"){
+        else if (screenType.screenType === "LCD"){
             pts_type = 8}
-        if (os == "ios"){
+        if (os === "ios"){
             pts_os = 10}
         else
             pts_os = 9
@@ -41,13 +41,13 @@ const PhoneDetails = ({brand, price, img, release, model, ram, inch, screenType,
             pts_storage -= 1}
         let note_finale = ((1.5 * pts_tel) + (1 * pts_size) + (1 * pts_type) + (0.5 * pts_os) + (2 * pts_ram) + (
                     2 * pts_year) + (2 * pts_storage)) / 10
-
+                    
         return note_finale 
     }
 
     return ( 
         <div className="col-12 text-center mb-5">
-            <img className="mb-4" src={img} alt="Card image cap" />
+            <img className="mb-4" src={img} />
             <h1 className="h2 my-3">{brand} {model}</h1>
             <p className="text-muted">Année de sortie : {release}</p>
             <ul className="list-group list-group-flush my-3">

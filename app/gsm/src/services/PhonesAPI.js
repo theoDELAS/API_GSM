@@ -30,4 +30,10 @@ function fetchPhone(id) {
         .then(response => response.data);
 };
 
-export default { fetchPhones, fetchPhone, fetchPhonesDesc, fetchPhonesAsc, fetchPhonesBrand };
+function fetchPhonesQuery(query) {
+    return Axios
+        .get(`http://localhost:8080/api/telephones?q=${query}`)
+        .then(response => response.data);
+};
+
+export default { fetchPhones, fetchPhone, fetchPhonesDesc, fetchPhonesAsc, fetchPhonesBrand, fetchPhonesQuery };

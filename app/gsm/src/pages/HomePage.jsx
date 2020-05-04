@@ -5,13 +5,14 @@ import Navbar from '../components/Navbar';
 const HomePage = ({ match }) => {
     const { order } = match.params;
     const { brand } = match.params;
+    const { query } = match.params;    
     
     return ( 
         <>
             <Navbar />
             <div className="container pt-5 mb-5">
                 <h2 className="text-center my-5 display-4">Nos téléphones</h2>
-                <PhonesList order={order} brand={brand}/>
+                <PhonesList order={order} brand={brand} query={query}/>
             </div>
         </>
     );

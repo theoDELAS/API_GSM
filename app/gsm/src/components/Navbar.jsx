@@ -16,11 +16,14 @@ const Navbar = () => {
                     <li className="nav-item mr-3">
                         <Link to={`/telephones/order/asc`} className="nav-link">Prix croissant</Link>
                     </li>
+                    <li className="nav-item mr-3">
+                        <Link to={`/addPhone`} className="nav-link">Ajouter un téléphone</Link>
+                    </li>
                 </ul>
-                <form action="" className="form-inline my-2 my-lg-0">
+                {/* <form action="" className="form-inline my-2 my-lg-0">
                     <input type="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </form> */}
             </div>
         </nav>
     );
