@@ -5,7 +5,7 @@ _Dans le cadre du TP ExpressJS, nous avons réalisé un site Web listant les car
 
 _Réalisé par DELAS Théo **[@theoDELAS](https://github.com/theoDELAS)** et CEBERIO Pierre **[@PierreYnov](https://github.com/PierreYnov)**  ._
 
-![img](https://github.com/theoDELAS/API_GSM/tree/master/img/img.png)
+![](https://github.com/theoDELAS/API_GSM/tree/master/img/img.png)
 
 ## Sommaire
 
