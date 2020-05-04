@@ -18,10 +18,16 @@ function fetchPhonesAsc() {
         .then(response => response.data);
 };
 
-function fetchPhone(id) {
+function fetchPhonesBrand(brand) {
     return Axios
-    .get(`http://localhost:8080/api/telephone/${id}`)
-    .then(response => response.data);
+        .get(`http://localhost:8080/api/telephones/${brand}`)
+        .then(response => response.data);
 };
 
-export default { fetchPhones, fetchPhone, fetchPhonesDesc, fetchPhonesAsc };
+function fetchPhone(id) {
+    return Axios
+        .get(`http://localhost:8080/api/telephone/${id}`)
+        .then(response => response.data);
+};
+
+export default { fetchPhones, fetchPhone, fetchPhonesDesc, fetchPhonesAsc, fetchPhonesBrand };

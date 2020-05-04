@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import PhoneCard from './PhoneCard';
 import PhoneDetails from './PhoneDetails';
 
-const PhonesList = ({ id, order }) => {
+const PhonesList = ({ id, order, brand }) => {
 
     const [phones, setPhones] = useState([]);    
     
@@ -23,7 +23,11 @@ const PhonesList = ({ id, order }) => {
             } else if (id) {
                 const data = await PhonesAPI.fetchPhone(id);
                 setPhones(data);
-            } else {
+            } else if (brand) {
+                const data = await PhonesAPI.fetchPhonesBrand(brand);
+                setPhones(data);
+            } 
+            else {
                 const data = await PhonesAPI.fetchPhones();
                 setPhones(data);
             }
@@ -34,7 +38,7 @@ const PhonesList = ({ id, order }) => {
 
     useEffect(() => {
         fetchPhones();
-    },[id, order])    
+    },[id, order, brand])    
     return ( 
         <>
             <div className="mx-5">
