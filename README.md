@@ -18,7 +18,7 @@ _Réalisé par DELAS Théo **[@theoDELAS](https://github.com/theoDELAS)** et CEB
 
 ## Documentation d'installation
 
-_Manuel d'installation étape pour déployer le projet_
+_Manuel d'installation pour déployer le projet_
 
 ### 0. Prérequis
 
