@@ -53,7 +53,7 @@ const AddPhone = () => {
                         <input ref={register} type="number" name="price" className="form-control" id="price" aria-describedby="price" min="0" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="imgLink">Image</label>
+                        <label htmlFor="imgLink">Lien de l'image</label>
                         <input ref={register} type="text" name="imgLink" className="form-control" id="imgLink" aria-describedby="imgLink"/>
                     </div>
                     <div className="form-group">
