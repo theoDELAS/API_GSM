@@ -42,6 +42,7 @@ Le projet se compilera et votre navigateur lancera une page internet sur le proj
 
 ## Pour aller plus loin
 
+- Avoir une vrai interface utilisateur 
 - Possibilté de se créer un compte utilisateur afin de pouvoir mettre en favori des téléphones, voire une section commentaires ?
 - Avoir plus de téléphones en BDD
 - Création de catégories par marques de téléphones, par meilleures notes.
